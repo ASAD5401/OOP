@@ -1,0 +1,57 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	float arr1[5] = { 23,54,65,78,98 };
+	float *pt1;
+	cout << "Address of array 1 using array are" << endl;
+	for (int i = 0;i < 5; i++)
+	{
+		cout << "arr1[" << i << "]=" << &arr1[i] << endl;
+	}
+	pt1 = arr1;
+	cout << "Address of array 1 using pointer are" << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "arr1[" << i << "]=" << pt1+i << endl;
+	}
+	cout << "Contents of arrray 1 using pointer are" << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "pt1[" << i << "]=" << *pt1++ << endl;
+	}
+	cout << "Contents of arrray 1 using array are" << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "arr1[" << i << "]=" << arr1[i] << endl;
+	}
+	_getch();
+	return 0;
+}
+
+OUTPUT:
+Address of array 1 using array are
+arr1[0]=0073F950
+arr1[1]=0073F954
+arr1[2]=0073F958
+arr1[3]=0073F95C
+arr1[4]=0073F960
+Address of array 1 using pointer are
+arr1[0]=0073F950
+arr1[1]=0073F954
+arr1[2]=0073F958
+arr1[3]=0073F95C
+arr1[4]=0073F960
+Contents of arrray 1 using pointer are
+pt1[0]=23
+pt1[1]=54
+pt1[2]=65
+pt1[3]=78
+pt1[4]=98
+Contents of arrray 1 using array are
+arr1[0]=23
+arr1[1]=54
+arr1[2]=65
+arr1[3]=78
+arr1[4]=98

@@ -1,0 +1,86 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+
+class ATM
+{
+private:
+	int accno;
+	string name;
+	double balance;
+public:
+	ATM()
+	{};
+	ATM(int a, string n, double b) :accno(a), name(n), balance(b)
+	{};
+	void setaccno(int a)
+	{
+		accno = a;
+	}
+	int getaccno()
+	{
+		return accno;
+	}
+	void setname(string n)
+	{
+		name = n;
+	}
+	string getname()
+	{
+		return name;
+	}
+	void setbalance(double b)
+	{
+		balance = b;
+	}
+	double getbalance()
+	{
+		return balance;
+	}
+	double credit(double amount)
+	{
+		balance = balance + amount;
+		return balance;
+	}
+	double debit(double amount)
+	{
+		if(amount>0 && amount<=balance)
+		{
+			balance = balance - amount;
+			return balance;
+		}
+		
+	}
+	void showdata()
+	{
+		cout << "ACCOUNT NO IS          : " << accno << endl;
+		cout << "ACCOUNT HOLDER NAME IS : " << name << endl;
+		cout << "BALANCE IS             : " << balance << endl;
+	}
+};
+int main()
+{
+	ATM myacc(1, "ASAD ALI KHAN", 10000);
+	myacc.showdata();
+	cout << "ENTER AMOUNT TO CREDIT :";
+	int crd;
+	cin >> crd;
+	cout << "I AM GOING TO CREDIT " << crd << " AND MY NEW BALANCE IS " << myacc.credit(crd) << endl;
+	int acc;
+	cout << "ENTER NEW ACCOUNT NO :"; cin >> acc;
+	myacc.setaccno(acc);
+	string nam;
+	cout << "ENTER HOLDER NAME OF ACCOUNT :"; cin >> nam;
+	myacc.setname(nam);
+	int b;
+	cout << "ENTER BALANCE OF ACCOUNT :"; cin >> b;
+	myacc.setbalance(b);
+	myacc.showdata();
+	cout << endl;
+	ATM acc2(3, "SAAD", 100);
+	acc2.showdata();
+
+	_getch();
+	return 0;
+}

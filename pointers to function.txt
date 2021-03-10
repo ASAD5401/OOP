@@ -1,0 +1,34 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int sum(int* pt1, int* pt2)
+{
+	int result;
+	result = *pt1 + *pt2;
+	return result;
+}
+int diff(int* pt1, int* pt2)
+{
+	int result;
+	result = *pt1 - *pt2;
+	return result;
+}
+int main()
+{
+	int num1, num2;
+	int *pt1, *pt2;
+	cout << "Enter value for number 1 :"; cin >> num1;
+	cout << "Enter value for number 2 :"; cin >> num2;
+	pt1 = &num1;
+	pt2 = &num2;
+	cout << "The sum of number 1 and number 2 is " << sum(&num1, &num2) << endl;
+	cout << "The diff of number 1 and number 2 is " << diff(&num1, &num2) << endl;
+	_getch();
+	return 0;
+}
+OOUTPUT:
+Enter value for number 1 :23
+Enter value for number 2 :13
+The sum of number 1 and number 2 is 36
+The diff of number 1 and number 2 is 10
