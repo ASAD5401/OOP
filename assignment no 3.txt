@@ -1,0 +1,171 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class rentedvehicle
+{
+protected:
+	double basefee;
+public:
+	rentedvehicle()
+	{
+		basefee = 0.0;
+	};
+	rentedvehicle(double bf)
+	{
+		basefee = bf;
+	}
+	virtual double getcost()
+	{
+		return basefee;
+	}
+	double getbasefee()
+	{
+		return basefee;
+	}
+	void setbasefee(double f)
+	{
+		basefee = f;
+	}
+};
+class fuelvehicle :public rentedvehicle
+{
+protected:
+	double kms;
+public:
+	fuelvehicle()
+	{
+		kms = 0.0;
+	};
+	fuelvehicle(double km)
+	{
+		kms = km;
+	}
+	double mileagefees;
+
+	double getmileagefees()
+	{
+		if (kms < 100)
+		{
+			mileagefees = 0.2 * kms;
+		}
+		else if ( kms <= 400)
+		{
+			mileagefees = 0.3 * kms;
+		}
+		else if (kms > 400)
+		{
+			mileagefees = (0.3 * 400) + (0.5 * (kms-400));
+
+		}
+		return mileagefees;
+	}
+	void setkms(double km)
+	{
+		kms = km;
+	}
+};
+
+class car :public fuelvehicle
+{
+private:
+	int seats;
+public:
+	car()
+	{
+		seats = 0;
+	};
+	car(int s)
+	{
+		seats = s;
+	}
+	double getcost()
+	{
+		return (getbasefee() * seats) + getmileagefees();
+	}
+	void setseats(int s)
+	{
+		seats = s;
+	}
+	int getseats()
+	{
+		return seats;
+	}
+};
+
+class truck :public fuelvehicle
+{
+private:
+	int capacity;
+public:
+	truck()
+	{
+		capacity = 0;
+	};
+	truck(int c)
+	{
+		capacity = c;
+	}
+	double getcost()
+	{
+		return ((getbasefee() * capacity) + getmileagefees());
+	}
+	void setcapacity(int c)
+	{
+		capacity = c;
+	}
+	int getcapacity()
+	{
+		return capacity;
+	}
+};
+
+class bicycle : public rentedvehicle
+{
+private:
+	int ndays;
+public:
+	double basefee;
+	bicycle()
+	{
+		ndays = 0;
+	};
+	bicycle(int d)
+	{
+		ndays = d;
+	}
+	double getcost()
+	{
+		return getbasefee() * ndays;
+	}
+	void setdays(int d)
+	{
+		ndays = d;
+	}
+	int getdays()
+	{
+		return ndays;
+	}
+
+};
+int main()
+{
+	cout << "An object of class car" << endl;
+	car c1(4);
+	c1.setbasefee(1200);
+	c1.setkms(5000);
+	cout <<"The mileagefees of car # 1 is : "<< c1.getmileagefees() << endl;
+	cout <<"The total cost is : "<< c1.getcost() << endl;
+	cout << "An object of class truck" << endl;
+	truck t1(250);
+	t1.setbasefee(2000);
+	t1.setkms(90);
+	cout << "The mileagefees of truck # 1 is : " << t1.getmileagefees() << endl;
+	cout << "The total cost is : " << t1.getcost() << endl;
+	cout << "An object of class bicycle" << endl;
+	bicycle b1(7);
+	b1.setbasefee(200);
+	cout <<"The total cost is :"<< b1.getcost() << endl;
+	_getch();
+	return 0;
+}

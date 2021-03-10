@@ -1,0 +1,79 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+/*
+class base
+{
+public:
+void show()
+	{
+	cout << "I am base class"<<endl;
+	}
+};
+class derived : public base
+{
+public:
+	void show()
+	{
+		cout << "I am derived class"<<endl;
+}
+};
+/*int main()
+{
+	base b;	//base class object
+	derived d;   // derived class object
+	b.show();  //Early bindding occurs
+	d.show();
+}
+output
+I am base class
+I am derived class
+*/
+/*int main()
+{
+	base* b;   //base classs pointer
+	derived d;   // derived classs object
+	b = &d;		// early binding occurs
+	b->show();
+}
+*/
+/*
+output
+I am base class5
+*/
+/*compiler jo ha wh bs yh dekhe ga ke base ha or wh base wale show ke pas chala jaye jaye ga 
+ose smjh nhin aiga ke yh pointer ha */
+
+
+
+
+/*VIRTUAL KEYWORD SE LATE BINDING HOTE HA*/
+class base
+{
+public:
+	 virtual void show()
+	{
+		cout << "I am base class" << endl;
+	}
+};
+class derived : public base
+{
+public:
+	virtual void show()
+	{
+		cout << "I am derived class" << endl;
+	}
+};
+
+int main()
+{
+	base* b;   //base classs pointer
+	derived d;   // derived classs object
+	b = &d;
+	b->show();	//late binding occurrs
+}
+/*
+output
+I am derived class
+*/

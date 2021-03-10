@@ -1,0 +1,63 @@
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+
+class links
+{
+private:
+	const char* name;
+public:
+	links()
+	{
+		cout << "default constructor of link" << endl;
+	};
+	links(const char* n) :name(n)
+	{
+		cout << "parametrized constructor of link" << endl;
+	};
+};
+class webpage
+{
+private:
+	double width;
+	double height;
+	links hp1;
+	links hp2;
+public:
+	webpage()
+	{
+		cout << "i am webpage default constructor" << endl;
+	};
+	webpage(double w, double h) :width(w), height(h)
+	{
+		cout << "i am parametrized constructor of webpage" << endl;
+	};
+};
+
+class website
+{
+private:
+	const char* name;
+	webpage wp1;
+	webpage wp2;
+	webpage wp3;
+	webpage wp4{9.4,4.6};
+
+public:
+	website()
+	{
+		cout << "i am default contructor of website" << endl;
+	};
+	website(const char*n) :name(n)
+	{
+
+		cout << "i am parametrized constructor of website" << endl;
+	};
+
+};
+
+int main()
+{
+	website ned("asad");
+}

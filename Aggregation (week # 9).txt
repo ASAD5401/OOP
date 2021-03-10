@@ -1,0 +1,101 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+
+class chair
+{
+};
+
+class table
+{
+
+};
+
+class classroom
+{
+private:
+	int height;
+	int width;
+	int chairno;
+	chair* chairs[20];
+	table* t;
+public:
+	classroom()
+	{
+		for (int i = 0; i <= 20; i++)
+		{
+			chairs[i] = NULL;
+		}
+		chairno = 0;
+		t= NULL;
+		height = 0;
+		width = 0;
+		
+	};
+	void addchair(chair* ch, int chairno)
+	{
+		if (chairno >= 0 && chairno <= 20)
+		{
+			chairs[chairno] = ch;
+		}
+	}
+	chair* getchair(int chairno)
+	{
+		if (chairno >= 0 && chairno <= 20)
+		{
+			return chairs[chairno];
+		}
+		else
+		{
+			return NULL;
+		}
+	}
+	void addtable(table* t1)
+	{
+		t = t1;
+	}
+	table* gettable()
+	{
+		return t;
+	}
+	void setheight(int h)
+	{
+		height = h;
+	}
+	int setheight()
+	{
+		return height;
+	}
+	void setwidth(int w)
+	{
+		width = w;
+	}
+	int getwidth()
+	{
+		return width;
+	}
+	virtual int area()
+	{
+		return height*width;
+	}
+};
+
+int main()
+{
+	chair c[20];
+	table t1;
+	classroom cl1;
+	for (int i = 0; i <= 20; i++)
+	{
+		cl1.addchair(&c[i], i);
+		cout << "chair no " << i << " is placed at " << cl1.getchair(i) << endl;
+	}
+	cl1.addtable(&t1);
+	cout << "location of table  is  " << cl1.gettable() << endl;
+	cl1.setheight(20);
+	cl1.setwidth(30);
+	cout << "area of classroom is" << cl1.area() << endl;
+	_getch();
+	return 0;
+}

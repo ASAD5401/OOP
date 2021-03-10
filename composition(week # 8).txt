@@ -1,0 +1,101 @@
+#include <string>
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class date
+{
+private:
+	int day;
+	int month;
+	int year;
+public:
+	static const int monthsperyear = 12;
+	date()
+	{};
+	date(int d, int m, int y)
+	{
+		year = (y > 0 && y <= 2030) ? y : 0;
+		month = (m > 0 && m <= 12) ? m : 0;
+		day = checkday(d);
+	}
+	void setdate(int d, int m, int y)
+	{
+		year = (y > 0 && y <= 2030) ? y : 0;
+		month = (m > 0 && m <= 12) ? m : 0;
+		day = checkday(d);
+	}
+	int checkday(int d) const
+	{
+		static const int dayspermonth[monthsperyear + 1] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+		if (d < dayspermonth[month])
+			return d;
+		else
+			return 1;
+	}
+	void showdate()
+	{
+		string name[] = { "JANUARY","FEBURARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER" };
+		cout << day << "/" << name[month - 1] << "/" << year << endl;
+
+	}
+};
+class person
+{
+private:
+	string name;
+	int age;
+	string address;
+	date birthdate;
+public:
+	person()
+	{};
+	person(string n, int a, string ad, date d1)
+	{
+		name = n;
+		age = a;
+		address = ad;
+		birthdate = d1;
+	};
+	string getname()
+	{
+		return name;
+	}
+	void setname(string n)
+	{
+		name = n;
+	}
+	int getage()
+	{
+		return age;
+	}
+	void setage(int a)
+	{
+		age= a;
+	}
+	string getaddress()
+	{
+		return address;
+	}
+	void setaddress(string ad)
+	{
+		address = ad;
+	}
+	void showdata()
+	{
+		cout << "Name is          :" << name << endl;
+		cout << "Age is           :" << age << endl;
+		cout << "Address is       : " << address << endl;
+		cout << "Date of Birth is : ";
+		birthdate.showdate();
+	}
+};
+int main()
+{
+	date d1(05, 04, 2001);
+	person p1("Asad Ali Khan", 19, "R-4,ROW 2-A,BLOCK-D", d1);
+	p1.showdata(); cout << endl;
+	date d2(13, 9, 1993);
+	person p2("Nimra Naz", 26, "R-4,ROW 2-A,BLOCK-D", d2);
+	p2.showdata(); cout << endl;
+}

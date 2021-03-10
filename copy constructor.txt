@@ -1,0 +1,42 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class student
+{
+	int roll;
+	int marks;
+public:student(int m, int n)
+{
+	roll = m;
+	marks = n;
+}
+	  student(student& t)
+	  {
+		  roll = t.roll;
+		  marks = t.marks;
+	  }
+	  void showdata()
+	  {
+		  cout << "roll no" << roll<<endl;
+		  cout << "marks" << marks<<endl;
+
+	  }
+};
+/* agr bahaar define karna ha copy constructor to is tarah se karenge or oper yh denge student(student& t);
+student::student(student& t)
+{
+	roll = t.roll;
+	marks = t.marks;
+}
+*/
+int main()
+{
+	cout << "Parametrized contructor output" << endl;
+	student r(60, 30);
+	r.showdata();
+	cout << "Copy constructor" << endl;
+	student stu(r);
+	stu.showdata();
+	return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	int wdcount = 1;
+	int chcount = 0;
+	char ch;
+	while ((ch =_getch()) != '\r')
+	{
+		if (ch == ' ')
+		{
+			wdcount++;
+		}
+		else
+		{
+			chcount++;
+		}
+	}
+	cout << "total no of words in phrase" << wdcount << endl;
+	cout<<"total no of characters in phrase"<<chcount<<endl;
+	_getch();
+	return 0;
+}

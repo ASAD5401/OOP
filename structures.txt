@@ -1,0 +1,35 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+struct employee
+{
+	char name[10];
+	long phoneno;
+	float salary;
+};
+employee getdata(employee e1)
+{
+	cout << "enter name" << endl;
+	cin.get(e1.name, 10);
+	cout << "enter phone no" << endl;
+	cin >> e1.phoneno;
+	cout << "enter salary" << endl;
+	cin >> e1.salary;
+	return e1;
+}
+int main()
+{
+	employee e1 = { "asad",78876543,1098586};
+	cout << e1.name << endl;
+	cout << e1.salary << endl;
+	cout << e1.phoneno << endl;
+	employee e2 = getdata(e1);
+	cout << e2.name << endl;
+	cout << e2.salary << endl;
+	cout << e2.phoneno << endl;
+	employee e3 = getdata(e1);
+	cout << e3.name << endl;
+	cout << e3.salary << endl;
+	cout << e3.phoneno << endl;
+}

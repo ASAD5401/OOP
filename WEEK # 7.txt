@@ -1,0 +1,113 @@
+#include <conio.h>
+#include <iostream>
+using namespace std;
+
+class shape
+{
+protected:
+	int height;
+	int width;
+	static int count;
+public:
+	shape()
+	{};
+
+	shape(int h, int w) : /*initializer list*/ height(h), width(w)
+	{
+		count++;
+	};
+	~shape()
+	{
+
+		count--;
+	};
+	int getcount()
+	{
+		return count;
+	};
+
+	int getheight()
+	{
+		return height;
+	}
+	void setheight(int h)
+	{
+		height = h;
+	}
+	int getwidth()
+	{
+		return width;
+	}
+	void setwidth(int w)
+	{
+		width = w;
+	}
+	virtual string showdata()
+	{
+		return "I am parent class";
+	}
+	virtual double area()
+	{
+		return 0.0;
+	}
+};
+int shape::count = 0;
+class rectangle :public shape
+{
+public:
+	rectangle(int h, int w) :shape(height, width)
+	{};
+	virtual string showdata()
+	{
+		return "I am rectangle class";
+	}
+	virtual double area()
+	{
+		return height * width;
+	}
+};
+class triangle :public shape
+{
+public:
+	double angle;
+	triangle(int h, int w, double a) :shape(height, width)
+	{
+		angle = a;
+	};
+	virtual string showdata()
+	{
+		return "I am triangle class";
+	}
+	virtual double area()
+	{
+		return (height * width) / 2;
+	}
+};
+int main()
+{
+	rectangle r1(5, 6);
+	rectangle r2(8, 6);
+	rectangle r3(5, 2);
+	triangle tr1(5, 6, 2);
+	shape* sh[3];
+	sh[0] = &r1;
+	cout << "I am  rectangle first child of shape and area is" << sh[0]->area() << endl;
+	sh[1] = &r2;
+	cout << "I am rectangle second child of shape and area is" << sh[1]->area() << endl;
+	sh[2] = &tr1;
+	cout << "I am triangle third child of shape and area is" << sh[2]->area() << endl;
+
+	cout << "I am rectangle no 1 and totat rectangles are" << r1.getcount() << endl;
+	cout << "I am rectangle no 2 and totat rectangles are" << r2.getcount() << endl;
+	cout << "I am rectangle no 3 and totat rectangles are" << r3.getcount() << endl;
+	
+	_getch();
+	return 0;
+}
+/* Yahan pe function overriding yh ha jese hmne virtual string showdata parent class or
+derived class dono mn use kia ha to dono jaga declaration same ha par body ander se
+function ki change ha or return type ka same hona bhi lazmi ha jese yahan dono jaga
+double ha*/
+/*Aik class mn do function ka same name hosakta ha par onka signature ka different hona
+lazmi hai sum(2,3) agr aik function ha to dosra sum(2,3,4) hoga. aesa nhi hosakta ke dosra
+bhi sum(8,9) ho yh nhi hosakta*/

@@ -1,0 +1,108 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	int a = 10;
+	int* pt1;
+	pt1 = &a;
+	cout << "the memory address of a is                " << &a << endl;
+	cout << "the contents of variable a is             " << a << endl;
+	cout << "the memory address of pt1 is              " << &pt1 << endl;
+	cout << "the contents of variable a through pt1 is " << *pt1 << endl;
+	cout << endl;
+	a = 20;
+	cout << "the memory address of a is                " << &a << endl;
+	cout << "the contents of variable a is             " << a << endl;
+	cout << "the memory address of pt1 is              " << &pt1 << endl;
+	cout << "the contents of variable a through pt1 is " << *pt1 << endl;
+	cout << endl;
+	*pt1 = 650;
+	cout << "the memory address of a is                " << &a << endl;
+	cout << "the contents of variable a is             " << a << endl;
+	cout << "the memory address of pt1 is              " << &pt1 << endl;
+	cout << "the contents of variable a through pt1 is " << *pt1 << endl;
+	cout << endl;
+	int b;
+	b = 20;
+	pt1 = &b;
+	cout << "the memory address of a is                " << &b << endl;
+	cout << "the contents of variable a is             " << b << endl;
+	cout << "the memory address of pt1 is              " << &pt1 << endl;
+	cout << "the contents of variable a through pt1 is " << *pt1 << endl;
+/*
+	const int c = 30;
+	int* pt2;
+	*pt2 = &c;
+*/
+	cout << endl;
+	const int c = 30;
+	const int *pt2 = &c;
+	cout << "the memory address of c is                " << &c << endl;
+	cout << "the contents of variable c is             " << c << endl;
+	cout << "the memory address of pt2 is              " << &pt2 << endl;
+	cout << "the contents of variable a through pt2 is " << *pt2 << endl;
+/*	c = 8; is statement mn error ha kunke c constant ha
+	pt2 = &a;    is statement mn koi error nhi ha kunke pointer constant nhi ha*/
+
+	cout << endl;
+	int d=8;
+	int* const pt4=&d;
+	cout << "the memory address of d is                " << &d << endl;
+	cout << "the contents of variable d is             " << d << endl;
+	cout << "the memory address of pt4 is              " << &pt4 << endl;
+	cout << "the contents of variable a through pt4 is " << *pt4 << endl;
+/*	d = 9;   is statement mn koi error nhi ha kunke variable constant nhi ha
+	pt4 = 8;   is statement mn error ha kunke pointer constant ha  */
+
+
+
+	cout << endl;
+	const int* const pt3 = &c;
+	cout << "the memory address of c is                " << &c << endl;
+	cout << "the contents of variable c is             " << c << endl;
+	cout << "the memory address of pt2 is              " << &pt3 << endl;
+	cout << "the contents of variable a through pt2 is " << *pt3 << endl;
+/*	pt3 = a; is mn error ha pointer constant ha isliye
+	c = 7;  is mn error ha variable c constant ha isliye  */
+
+	_getch();
+	return 0;
+}
+ 
+/*output:
+the memory address of a is                00AFF860
+the contents of variable a is             10
+the memory address of pt1 is              00AFF854
+the contents of variable a through pt1 is 10
+
+the memory address of a is                00AFF860
+the contents of variable a is             20
+the memory address of pt1 is              00AFF854
+the contents of variable a through pt1 is 20
+
+the memory address of a is                00AFF860
+the contents of variable a is             650
+the memory address of pt1 is              00AFF854
+the contents of variable a through pt1 is 650
+
+the memory address of a is                00AFF848
+the contents of variable a is             20
+the memory address of pt1 is              00AFF854
+the contents of variable a through pt1 is 20
+
+the memory address of c is                00AFF83C
+the contents of variable c is             30
+the memory address of pt2 is              00AFF830
+the contents of variable a through pt2 is 30
+
+the memory address of d is                00AFF824
+the contents of variable d is             8
+the memory address of pt4 is              00AFF818
+the contents of variable a through pt4 is 8
+
+the memory address of c is                00AFF83C
+the contents of variable c is             30
+the memory address of pt2 is              00AFF80C
+the contents of variable a through pt2 is 30
+*/

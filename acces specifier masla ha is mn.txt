@@ -1,0 +1,55 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class asad
+{
+public:
+	int a;
+	int b;
+	int c;
+	asad()
+	{};
+	asad(int d, int e) :a(d), b(e)
+	{};
+	int add()
+	{
+		return a + b;
+	}
+	void seta(int d)
+	{
+		a = d;
+	}
+	void setb(int e)
+	{
+		b = e;
+	}
+
+};
+class sameed :private asad
+{
+	int z;
+public:
+	sameed()
+	{};
+	sameed(int x)
+	{
+		z = x;
+	}
+	int area()
+	{
+		return add() * z;
+	}
+};
+int main()
+{
+
+	sameed s1(7);
+	s1.seta(2);
+	s1.setb(3);
+	cout<<s1.area();
+
+}
+
+
+

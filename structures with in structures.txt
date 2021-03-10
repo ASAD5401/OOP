@@ -1,0 +1,26 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+struct Distance
+{
+	int feets;
+	float inches;
+};
+struct Room
+{
+	Distance length;
+	Distance width;
+};
+int main()
+{
+	Room classroom;
+	classroom.length.feets = 15;
+	classroom.length.inches = 10;
+	classroom.width.feets = 20;
+	classroom.width.inches = 10;
+	cout << classroom.length.feets << endl;
+	cout << classroom.length.inches << endl;
+	cout<< classroom.width.feets <<endl;
+	cout<< classroom.width.inches <<endl;
+}

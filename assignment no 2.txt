@@ -1,0 +1,93 @@
+#include <iostream>
+#include <conio.h>
+#include <string>
+using namespace std;
+class fan
+{
+private:
+	int const slow = 1;
+	int const medium = 2;
+	int const fast = 3;
+	int speed;
+	bool on;
+	double radius;
+	string colour;
+public:
+	fan()
+	{
+		speed = slow;
+		on = false;
+		radius = 5;
+		colour = "blue";
+	};
+	fan(int s, bool o, double r, string c)
+	{
+		speed = s;
+		on = o;
+		radius = r;
+		colour = c;
+	};
+	int getspeed()
+	{
+		return speed;
+	}
+	void setspeed(int s)
+	{
+		speed = s;
+	}
+	bool geton()
+	{
+		return on;
+	}
+	void seton(bool o)
+	{
+		on = o;
+	}
+	double getradius()
+	{
+		return radius;
+	}
+	void setradius(double r)
+	{
+		radius = r;
+	}
+	string getcolour()
+	{
+		return colour;
+	}
+	void setcolour(string c)
+	{
+		colour = c;
+	}
+	string showdata()
+	{
+		if (on == true)
+		{
+			if (speed == 1)
+			{
+				return "The fan speed is slow \nColour is " + colour + " \nRadius is "+ to_string(radius);
+			}
+			else if (speed== 2)
+			{
+				return "The fan speed is medium \nColour is " + colour + " \nRadius is " + to_string(radius);
+			}
+			else if (speed == 3)
+			{
+				return "The fan speed is fast \nColour is " + colour + " \nRadius is " + to_string(radius);
+			}
+		}
+		else
+		{
+			return "Colour of fan is " + colour + "\nRadius of fan is " + to_string(radius)+"\nFan is off";
+		}
+	}
+};
+int main()
+{
+	fan fan1(1, true, 6.8, "green");
+	fan fan2;
+	fan2.setcolour("orange");
+	cout<<fan1.showdata()<<endl;
+	cout << fan2.showdata() << endl;
+}
+

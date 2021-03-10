@@ -1,0 +1,47 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+	int num,fact;
+	fact = 1;
+	cin >> num;
+	for (int i = 1; i < num; i++)
+	{
+		fact += fact * i;
+		cout << fact << endl;
+	}
+	cout << fact <<endl;
+
+	return 0;
+}
+
+FACTORIAL BY RECURSION
+
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int fact(int n)
+{
+	if (n <= 1)
+	{
+		return 1;
+	}
+	else
+	{
+		cout << n << endl;
+		return n * fact(n - 1);
+		
+	}
+}
+
+int main()
+{
+	int num;
+	cin >> num;
+	cout << fact(num);
+}
+
